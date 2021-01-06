@@ -1,0 +1,37 @@
+<h2>Inscription</h2>
+
+<p>Reactive Forms</p>
+<p class="small">Penser à importer le module <strong>ReactiveFormsModule</strong> dans le <em>AppModule</em></p>
+
+<form [formGroup]="form" (ngSubmit)="signup()">
+
+  <div class="form-group">
+    <label for="email">Email: </label>
+    <input type="text" id="email" class="form-control" placeholder="Adresse email ..." formControlName="email" />
+    <p class="text-danger" *ngIf="controlEmail() as message">{{ message }}</p>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Mot de passe: </label>
+    <input type="password" id="password" class="form-control" placeholder="Mot de passe ..." formControlName="password" />
+    <p class="text-danger" *ngIf="controlPassword() as message">{{ message }}</p>
+  </div>
+
+  <div class="form-group">
+    <label for="confirmation">Confirmation: </label>
+    <input type="password" id="confirmation" class="form-control" placeholder="Confirmer le mot de passe ..."
+           formControlName="confirm" />
+    <p class="text-danger" *ngIf="controlConfirm() as message">{{ message }}</p>
+  </div>
+
+  <div class="form-group form-check">
+    <input type="checkbox" id="CGU" class="form-check-input" formControlName="terms" />
+    <label class="form-check-label" for="CGU">Conditions Générales d'Utilisation</label>
+    <p class="text-danger" *ngIf="controlTerms() as message">{{ message }}</p>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-outline-primary">S'inscrire</button>
+  </div>
+
+</form>

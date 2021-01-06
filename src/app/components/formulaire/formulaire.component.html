@@ -1,0 +1,58 @@
+<h2>Les Formulaires</h2>
+
+<p>Template Driven Forms</p>
+<p class="small">Penser à importer le module <strong>FormsModule</strong> dans le <em>AppModule</em></p>
+<p class="small">Utilise le principe de <strong>Two Way Data Binding</strong> (ngModel)</p>
+
+
+<section class="row">
+
+  <aside class="col-4">
+
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let product of products">
+        {{ product.name }} @ {{ product.price | currency }}
+      </li>
+    </ul>
+
+  </aside>
+
+  <article class="col-8">
+
+    <form (ngSubmit)="addProduct(form)" #form="ngForm">
+
+      <div class="form-group">
+        <label for="name">Nom: </label>
+        <input type="text" name="name" id="name" class="form-control" placeholder="Entrer le nom du produit"
+          [(ngModel)]="product.name" required #inputName="ngModel" />
+
+        <p class="text-danger" *ngIf="inputName.touched && inputName.getError('required')">
+          Le nom est obligatoire
+        </p>
+
+      </div>
+
+      <div class="form-group">
+        <label for="price">Prix: </label>
+        <input type="text" name="price" id="price" class="form-control" placeholder="Entrer le prix du produit"
+          [(ngModel)]="product.price" required #inputPrice="ngModel" pattern="^[0-9]+([\.|,][0-9]+)?" />
+
+        <p class="text-danger" *ngIf="inputPrice.touched && inputPrice.getError('required')">
+          Le prix est obligatoire
+        </p>
+
+        <p class="text-danger" *ngIf="inputPrice.touched && inputPrice.getError('pattern')">
+          Le format du prix n'est pas correct
+        </p>
+
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-outline-primary">Ajouter</button>
+      </div>
+
+    </form>
+
+  </article>
+
+</section>

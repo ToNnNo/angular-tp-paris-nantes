@@ -1,0 +1,168 @@
+<h2>Les Directives</h2>
+
+<ul>
+  <li>Les directives structurelles : Elles ont pour but de modifier le DOM en ajoutant,
+    enlevant ou replaçant un élément du DOM.
+  </li>
+
+  <li>Les directives d'attributs : Elles ont pour but de modifier l'apparence ou le
+    comportement d'un élément.
+  </li>
+</ul>
+
+<p>Un composant Angular, est une directive particulière (1 fichier .ts (logique) et 1 fichier .html (vue))</p>
+
+<p class="lead text-primary">Directives Structures</p>
+
+<section>
+  <h3>ngIf</h3>
+
+  <button class="btn btn-outline-primary mb-3" (click)="shown = !shown">
+    {{ shown ? 'Masquer': 'Afficher' }}
+  </button>
+
+  <p *ngIf="shown">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci distinctio earum itaque labore
+    laborum sequi tempore vitae voluptate voluptatum. Dolore earum laboriosam necessitatibus nihil nulla officia sequi
+    sit velit!</p>
+
+  <p *ngIf="shown; else elseBlock">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci distinctio earum itaque labore
+    laborum sequi tempore vitae voluptate voluptatum. Dolore earum laboriosam necessitatibus nihil nulla officia sequi
+    sit velit!</p>
+
+  <ng-template #elseBlock>
+    <p>Lorem ipsum dolor sit amet, [...] nihil nulla officia sequi sit velit!</p>
+  </ng-template>
+
+  <p *ngIf="lorem(shown); let text">{{ text }}</p>
+  <p *ngIf="lorem(shown) as text">{{ text }}</p>
+</section>
+
+<section>
+  <h3>ngFor</h3>
+
+  <ul>
+    <li *ngFor="let letter of ['a', 'b', 'c']; let key = index; odd as odd; even as even; first as first; last as last">
+      {{ key }}: {{ letter }}
+    </li>
+  </ul>
+
+</section>
+
+<section>
+  <h3>ngSwitch</h3>
+
+  <div class="btn-group btn-group-sm my-3">
+    <button class="btn btn-outline-dark" (click)=" mode = 'vertical' ">Vertical</button>
+    <button class="btn btn-outline-dark" (click)=" mode = 'horizontal' ">Horizontal</button>
+    <button class="btn btn-outline-dark" (click)=" mode = null ">Aucun</button>
+  </div>
+
+  <div [ngSwitch]=" mode ">
+
+    <ul class="list-unstyled" *ngSwitchCase=" 'vertical' ">
+      <li>Element 1</li>
+      <li>Element 2</li>
+      <li>Element 3</li>
+    </ul>
+
+    <ul class="list-inline" *ngSwitchCase=" 'horizontal' ">
+      <li class="list-inline-item">Element 1</li>
+      <li class="list-inline-item">Element 2</li>
+      <li class="list-inline-item">Element 3</li>
+    </ul>
+
+    <p class="text-black-50" *ngSwitchDefault>Choisissez un mode d'affichage</p>
+
+  </div>
+
+</section>
+
+<section>
+  <h3>NgPlural</h3>
+
+  <div [ngPlural]=" nb ">
+    <ng-template ngPluralCase="=0">
+      <p>Vous n'avez aucun message</p>
+    </ng-template>
+
+    <ng-template ngPluralCase="one">
+      <p>Vous avez un nouveau message</p>
+    </ng-template>
+
+    <ng-template ngPluralCase="other">
+      <p>Vous avez {{ nb }} nouveaux messages</p>
+    </ng-template>
+  </div>
+
+
+</section>
+
+<p class="lead text-primary">Directives d'Attributs</p>
+
+<section>
+  <h3>ngClass</h3>
+
+  <p [ngClass]=" 'text-info text-monospace' ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci distinctio earum itaque labore
+    laborum sequi tempore vitae voluptate voluptatum. Dolore earum laboriosam necessitatibus nihil nulla officia sequi
+    sit velit!</p>
+
+  <p class="small" [ngClass]=" ['text-warning', 'text-capitalize'] ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci distinctio earum itaque labore
+    laborum sequi tempore vitae voluptate voluptatum. Dolore earum laboriosam necessitatibus nihil nulla officia sequi
+    sit velit!</p>
+
+  <div class="btn-group btn-group-sm my-3">
+    <button class="btn btn-outline-dark" (click)=" state = 'success' ">Validé</button>
+    <button class="btn btn-outline-dark" (click)=" state = 'pending' ">En attente</button>
+    <button class="btn btn-outline-dark" (click)=" state = 'cancel' ">Refusé</button>
+  </div>
+
+  <div>
+    <p class="badge" [ngClass]=" {
+      'badge-warning': state == 'pending',
+      'badge-danger': state == 'cancel',
+      'badge-success': state == 'success'
+    } ">
+      Etat du paiement</p>
+  </div>
+
+</section>
+
+<section>
+  <h3>ngStyle</h3>
+
+  <div class="btn-group btn-group-sm my-3">
+    <button class="btn btn-outline-dark" (click)=" progress = 0 ">0%</button>
+    <button class="btn btn-outline-dark" (click)=" progress = 25; bgcolor = 'red' ">25%</button>
+    <button class="btn btn-outline-dark" (click)=" progress = 50; bgcolor = 'orange' ">50%</button>
+    <button class="btn btn-outline-dark" (click)=" progress = 75; bgcolor = 'limegreen' ">75%</button>
+    <button class="btn btn-outline-dark" (click)=" progress = 100; bgcolor = 'green' ">100%</button>
+  </div>
+
+  <div class="progress">
+    <div class="progress-bar" [ngStyle]="{ 'width': progress+'%', 'background-color': bgcolor }"></div>
+  </div>
+
+  <div class="progress">
+    <div class="progress-bar" [style.width]=" progress+'%' "></div>
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

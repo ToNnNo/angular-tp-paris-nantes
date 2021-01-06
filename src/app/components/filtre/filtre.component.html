@@ -1,0 +1,71 @@
+
+<h2>Les Filtres <small>Pipe</small></h2>
+
+<p>Pour exploiter les filtres, on utilise de caractère pipe | </p>
+
+<section>
+  <h3>Textes</h3>
+
+  <p>{{ 'je suis un texte en minuscule' | uppercase }}</p>
+  <p>{{ 'JE SUIS UN TEXTE EN MAJUSCULE' | lowercase }}</p>
+  <p>{{ 'je suis un titre' | titlecase }}</p>
+</section>
+
+<section>
+  <h3>Numériques</h3>
+
+  <p>{{ 12345678.09 | number }}</p>
+
+  <p>{{ 3.141592 | number: '1.2-5' }}</p>
+  <p>{{ 1/16 | number: '1.2-5' }}</p>
+
+  <p>9.994 = {{ 9.994 | number: '2.2-2'}}</p>
+  <p>9.995 = {{ 9.995 | number: '2.2-2'}}</p>
+
+  <p>1/3 = {{ 1/3 | percent: '1.2'}}</p>
+
+</section>
+
+<section>
+  <h3>Monétaire</h3>
+
+  <p>code: {{ 12345678.99 | currency: 'CAD': 'code': '1.3-3' }}</p>
+  <p>symbol: {{ 12345678.99 | currency: 'CAD': 'symbol' }}</p>
+  <p>symbol-narrow: {{ 12345678.99 | currency: 'CAD': 'symbol-narrow' }}</p>
+
+</section>
+
+<section>
+  <h3>Date</h3>
+
+  <p>{{ date | date: 'dd/MM/yyyy' }}</p>
+  <p>{{ date | date: 'dd/MM/yyyy HH:mm:ss' }}</p>
+  <p>{{ date | date: 'full' }}</p>
+
+  <p>Paris : {{ date | date: 'longTime' }}</p>
+  <p>Londres : {{ date | date: 'longTime': '+0000' }}</p>
+  <p>New York : {{ date | date: 'longTime': '-0500' }}</p>
+  <p>Mumbai : {{ date | date: 'longTime': '+0530' }}</p>
+</section>
+
+<section>
+  <h3>Safe Opérator (?)</h3>
+
+  <p>Name = {{ user?.name }}</p>
+  <p>Address = {{ user?.address?.city }}</p>
+
+</section>
+
+<section>
+  <h3>Slice</h3>
+
+  <ul class="list-unstyled"> <!-- [0, 4[ -->
+    <li *ngFor="let name of users | slice: start: end"> {{ name }} </li>
+  </ul>
+
+  <div class="btn-group">
+    <button class="btn btn-outline-primary" (click)="prev()" [disabled]="start <= 0"> &laquo; Prev</button>
+    <button class="btn btn-outline-primary" (click)="next()" [disabled]="end >= users.length"> Next &raquo;</button>
+  </div>
+
+</section>

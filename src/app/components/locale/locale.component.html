@@ -1,0 +1,19 @@
+<h2>Les Locales</h2>
+
+<div class="btn btn-group">
+  <button class="btn btn-outline-primary" (click)="locale = 'en'">Anglais</button>
+  <button class="btn btn-outline-primary" (click)="locale = 'fr'">Français</button>
+  <button class="btn btn-outline-primary" (click)="locale = 'de'">Allemand</button>
+  <button class="btn btn-outline-primary" (click)="locale = 'ja'">Japonais</button>
+</div>
+
+<div class="btn btn-group mr-1">
+  <button class="btn btn-outline-primary" (click)="devise = 'USD'">Dollar</button>
+  <button class="btn btn-outline-primary" (click)="devise = 'EUR'">Euro</button>
+  <button class="btn btn-outline-primary" (click)="devise = 'JPY'">Yen</button>
+</div>
+
+
+<p>{{ 12345678.09 | currency: devise: 'symbol-narrow': null: locale }}</p>
+
+<p>{{ date | date: 'full': null: locale }}</p>

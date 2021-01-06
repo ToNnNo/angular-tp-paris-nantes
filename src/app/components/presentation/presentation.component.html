@@ -1,0 +1,78 @@
+<h2>Présentation</h2>
+
+<section>
+  <h3>Affichage</h3>
+
+  <p> 1 + 2 = {{ 1 + 2 }}</p>
+  <p>Hello {{ name }}</p>
+
+  <p>{{ product.name }} @ {{ product.price }}&euro; </p>
+
+  <p>{{ html }}</p> <!-- attack xss -->
+
+  <p [innerHTML]="html"></p> <!-- directive d'attribut [] -->
+
+  <p>Tous les attributs HTML, existent sous forme de directive d'attribut Angular.</p>
+
+  <input [type]=" 'checkbox' "/>
+
+  <div>
+    <img src="{{ path }}" alt="Logo batman" title="logo batman"/>
+  </div>
+
+  <div>
+    <img [src]="path" alt="Logo batman" title="logo batman"/>
+  </div>
+</section>
+
+<section>
+  <h3>Les évènements</h3>
+
+  <button (click)="clicked()">Cliquez ici</button>
+  <p>
+    <a href="#" (click)="confirmation($event)">Etes vous sur ?</a>
+  </p>
+</section>
+
+<section>
+  <h3>Two Way Data Binding</h3>
+  <p>Banana in box = [()]</p>
+  <p>MVVM ou MWM</p>
+
+  <input type="text" placeholder="Entrer votre message" [(ngModel)]="message" />
+  <button (click)="getMessageValue()">Voir le message</button>
+  <p>{{ message }}</p>
+
+</section>
+
+<section>
+  <h3>Les variables de template</h3>
+  <p>
+    Les variables de template se déclare avec <b>#nom</b> sur une balise HTML.
+    (document.querySelector() ou document.getElementById())
+  </p>
+  <p>
+    detectChange() = responsable de mettre à jours les vues Angular ( ngModel et event )
+  </p>
+
+  <input type="text" class="form-control" placeholder="Entrer votre message" #input (keyup.enter)="0" />
+
+  <p>type: {{ input.type }}</p>
+  <p>class: {{ input.className }}</p>
+  <p>value: {{ input.value }}</p>
+</section>
+
+<section>
+  <h2>Directive ngForOf</h2>
+
+  <ul>
+    <li *ngFor="let name of liste; index as key"> {{ key }}: {{ name }} </li>
+  </ul>
+
+</section>
+
+<!-- push() : ajouter une valeur à la fin du tableau -->
+<!-- splice(index, qte) : pour supprimer une valeur dans un tableau -->
+
+<!-- exercice: création d'une todo list -->
+<!-- Créer un nouveau composant -->
