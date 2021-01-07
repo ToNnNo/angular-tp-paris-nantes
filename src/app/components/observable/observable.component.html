@@ -1,1 +1,66 @@
-<p>observable works!</p>
+<h2>Les Observables</h2>
+
+<p>
+  Consulter la doc <a href="https://rxjs-dev.firebaseapp.com/api" target="_blank"> RxJS </a>
+  (Reactive Extensions for JavaScript)
+</p>
+<p>
+  Avec Angular les variables qui se termine par le caractère "$" sont par convention
+  des variables qui contiennent un résultat asynchrone.
+</p>
+
+<ul>
+  <li>Un Observable peut émettre plusieurs jeux de résultat au court du temps</li>
+  <li>Un Observable a 3 états:
+    <ul>
+      <li>La réussite: next() - Retourne des valeurs</li>
+      <li>L'échec: error() - Retourne une erreur, et ferme la communication</li>
+      <li>Terminé: complete() - Termine la communication</li>
+    </ul>
+  </li>
+  <li>Pour obtenir une information d'un observable, il faut s'y abonner (subscribe())</li>
+  <li>Je peux me désabonner d'un observable (unsubscribe())</li>
+</ul>
+
+<h3>Observable</h3>
+
+<p class="text-center lead"> {{ date | date: 'mediumTime' }} </p>
+
+<button class="btn btn-outline-primary my-3" (click)="synchroniser()" [disabled]="disabled">
+  Synchroniser
+</button>
+
+<p class="text-info" *ngIf="message">{{ message }}</p>
+
+<ul>
+  <li *ngFor="let value of numbers">{{ value }}</li>
+</ul>
+
+<hr />
+
+<h3>Les Subjects</h3>
+
+<h4>Subject</h4>
+
+<button class="btn btn-outline-primary" (click)="subject()">
+  Subject</button>
+
+<h4>Behavior Subject</h4>
+
+<button class="btn btn-outline-primary" (click)="behaviorSubject()">
+  Behavior Subject</button>
+
+<h4>Replay Subject</h4>
+
+<button class="btn btn-outline-primary" (click)="replaySubject()">
+  Replay Subject</button>
+
+
+
+
+
+
+
+
+
+

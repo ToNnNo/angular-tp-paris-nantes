@@ -27,6 +27,7 @@ import { FormulaireComponent } from './components/formulaire/formulaire.componen
 import { SigninComponent } from './components/signin/signin.component';
 import { ServiceComponent } from './components/service/service.component';
 import { ObservableComponent } from './components/observable/observable.component';
+import { ParametersComponent } from './components/parameters/parameters.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { ObservableComponent } from './components/observable/observable.componen
     SigninComponent,
     ServiceComponent,
     ObservableComponent,
+    ParametersComponent,
   ],
   imports: [
     BrowserModule,

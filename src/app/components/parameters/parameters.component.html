@@ -1,0 +1,29 @@
+
+<h2>Les Paramètres d'urls</h2>
+
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/parameters/john">John</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]=" ['/parameters', 'jane'] ">Jane</a>
+  </li>
+</ul>
+
+<section *ngIf="name">
+
+  <h3>Bonjour {{ name | titlecase }}</h3>
+
+  <p>Page = {{ page }}</p>
+
+  <ul class="pagination">
+    <li class="page-item" [ngClass]="{ 'active': page == 1 }">
+      <a class="page-link" [routerLink]=" ['/parameters', name ] " [queryParams]="{ page: 1 }"> 1 </a>
+    </li>
+    <li class="page-item" [ngClass]="{ 'active': page == 2 }">
+      <a class="page-link" [routerLink]=" ['/parameters', name ] " [queryParams]="{ page: 2 }"> 2 </a>
+    </li>
+  </ul>
+
+</section>

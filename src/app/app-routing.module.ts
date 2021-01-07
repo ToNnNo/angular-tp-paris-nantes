@@ -13,6 +13,7 @@ import { FormulaireComponent } from './components/formulaire/formulaire.componen
 import { SigninComponent } from './components/signin/signin.component';
 import { ServiceComponent } from './components/service/service.component';
 import { ObservableComponent } from './components/observable/observable.component';
+import { ParametersComponent } from './components/parameters/parameters.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,6 +27,8 @@ const routes: Routes = [
   { path: 'signin', component: SigninComponent },
   { path: 'service', component: ServiceComponent },
   { path: 'observable', component: ObservableComponent },
+  { path: 'parameters', component: ParametersComponent },
+  { path: 'parameters/:name', component: ParametersComponent },
   { path: 'home', redirectTo: '/', pathMatch: 'full' },
   { path: '**', component: NotfoundComponent } // wildcard (**/*.spec.ts)
 ];
