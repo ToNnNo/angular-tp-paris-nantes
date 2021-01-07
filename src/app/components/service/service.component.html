@@ -1,0 +1,16 @@
+<h2>Les Services</h2>
+
+<p class="font-italic">Rot13 (Casear Cipher)</p>
+
+
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="Entrer votre message secret"
+         [(ngModel)]="message" />
+  <div class="input-group-append">
+    <button class="btn btn-outline-primary" (click)="crypter()">
+      Crypter
+    </button>
+  </div>
+</div>
+
+<p class="form-control-plaintext"> {{ crypted }} </p>

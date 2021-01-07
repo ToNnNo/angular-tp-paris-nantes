@@ -19,6 +19,15 @@ export class CustomValidators {
   public static matchPassword(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
 
+      if ( control.get('password').value !== control.get('confirm').value ) {
+
+        // associe l'erreur au champs "confirm"
+        // control.get('confirm').setErrors( { error_match_password: true } );
+
+        // associe l'erreur au formGroup
+        return { error_match_password: true };
+      }
+
       return null;
     };
   }

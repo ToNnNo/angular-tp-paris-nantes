@@ -11,6 +11,8 @@ import { LocaleComponent } from './components/locale/locale.component';
 import { CustomfiltreComponent } from './components/customfiltre/customfiltre.component';
 import { FormulaireComponent } from './components/formulaire/formulaire.component';
 import { SigninComponent } from './components/signin/signin.component';
+import { ServiceComponent } from './components/service/service.component';
+import { ObservableComponent } from './components/observable/observable.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,6 +24,8 @@ const routes: Routes = [
   { path: 'custom/filtre', component: CustomfiltreComponent },
   { path: 'formulaire', component: FormulaireComponent },
   { path: 'signin', component: SigninComponent },
+  { path: 'service', component: ServiceComponent },
+  { path: 'observable', component: ObservableComponent },
   { path: 'home', redirectTo: '/', pathMatch: 'full' },
   { path: '**', component: NotfoundComponent } // wildcard (**/*.spec.ts)
 ];

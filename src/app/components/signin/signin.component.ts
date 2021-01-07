@@ -95,6 +95,14 @@ export class SigninComponent implements OnInit {
       if (this.confirm.getError('required')) {
         return `La confirmation est obligatoire`;
       }
+
+      /*if (this.confirm.getError('error_match_password')) {
+        return `Le mot de passe et la confirmation sont différents`;
+      }*/
+
+      if (this.form.getError('error_match_password')) {
+        return `Le mot de passe et la confirmation sont différents`;
+      }
     }
 
     return null;

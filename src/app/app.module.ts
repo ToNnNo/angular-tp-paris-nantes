@@ -25,6 +25,8 @@ import { CustomfiltreComponent } from './components/customfiltre/customfiltre.co
 import { SortPipe } from './pipes/sort/sort.pipe';
 import { FormulaireComponent } from './components/formulaire/formulaire.component';
 import { SigninComponent } from './components/signin/signin.component';
+import { ServiceComponent } from './components/service/service.component';
+import { ObservableComponent } from './components/observable/observable.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { SigninComponent } from './components/signin/signin.component';
     SortPipe,
     FormulaireComponent,
     SigninComponent,
+    ServiceComponent,
+    ObservableComponent,
   ],
   imports: [
     BrowserModule,
