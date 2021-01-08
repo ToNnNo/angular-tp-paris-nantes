@@ -55,7 +55,8 @@ import { ParametersComponent } from './components/parameters/parameters.componen
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr' },
-    { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' } // Angular 9
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' },  // Angular 9
+    { provide: 'StaticGuard', useValue: _ => true } // () => { return false }
   ],
   bootstrap: [AppComponent]
 })

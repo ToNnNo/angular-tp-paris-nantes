@@ -28,7 +28,11 @@ const routes: Routes = [
   { path: 'service', component: ServiceComponent },
   { path: 'observable', component: ObservableComponent },
   { path: 'parameters', component: ParametersComponent },
-  { path: 'parameters/:name', component: ParametersComponent },
+  {
+    path: 'parameters/:name',
+    component: ParametersComponent,
+    canActivate: ['StaticGuard']
+  },
   { path: 'home', redirectTo: '/', pathMatch: 'full' },
   { path: '**', component: NotfoundComponent } // wildcard (**/*.spec.ts)
 ];

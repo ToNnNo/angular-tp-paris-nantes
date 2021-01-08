@@ -13,7 +13,9 @@
 
 <section *ngIf="name">
 
-  <h3>Bonjour {{ name | titlecase }}</h3>
+  <button class="btn btn-outline-secondary float-right" (click)="back()"> Retour </button>
+
+  <h3>Bonjour {{ name | titlecase }} {{ lastname$ | async | titlecase }}</h3>
 
   <p>Page = {{ page }}</p>
 
