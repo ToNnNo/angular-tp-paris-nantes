@@ -1,0 +1,12 @@
+
+<h2>Authentication</h2>
+
+<button class="btn btn-outline-primary" (click)="logIn()" *ngIf="!state; else logOutBlock">Connexion</button>
+
+<ng-template #logOutBlock>
+
+  <p class="lead">Bonjour James.</p>
+
+  <button class="btn btn-outline-danger" (click)="logOut()">Déconnexion</button>
+
+</ng-template>

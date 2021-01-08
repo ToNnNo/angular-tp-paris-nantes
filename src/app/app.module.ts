@@ -28,6 +28,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { ServiceComponent } from './components/service/service.component';
 import { ObservableComponent } from './components/observable/observable.component';
 import { ParametersComponent } from './components/parameters/parameters.component';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ParametersComponent } from './components/parameters/parameters.componen
     ServiceComponent,
     ObservableComponent,
     ParametersComponent,
+    AuthenticationComponent,
   ],
   imports: [
     BrowserModule,
