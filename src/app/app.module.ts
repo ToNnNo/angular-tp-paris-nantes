@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -29,6 +30,8 @@ import { ServiceComponent } from './components/service/service.component';
 import { ObservableComponent } from './components/observable/observable.component';
 import { ParametersComponent } from './components/parameters/parameters.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { HttpComponent } from './components/http/http.component';
+import { AddressComponent } from './components/address/address.component';
 
 @NgModule({
   declarations: [
@@ -48,12 +51,15 @@ import { AuthenticationComponent } from './components/authentication/authenticat
     ObservableComponent,
     ParametersComponent,
     AuthenticationComponent,
+    HttpComponent,
+    AddressComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr' },

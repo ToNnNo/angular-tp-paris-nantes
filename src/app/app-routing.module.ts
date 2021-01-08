@@ -16,6 +16,7 @@ import { ObservableComponent } from './components/observable/observable.componen
 import { ParametersComponent } from './components/parameters/parameters.component';
 import { SecureRouteGuard } from './guards/secureRoute/secure-route.guard';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { HttpComponent } from './components/http/http.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -36,6 +37,7 @@ const routes: Routes = [
     canActivate: ['StaticGuard', SecureRouteGuard]
   },
   { path: 'authentication', component: AuthenticationComponent },
+  { path: 'http', component: HttpComponent },
   { path: 'home', redirectTo: '/', pathMatch: 'full' },
   { path: '**', component: NotfoundComponent } // wildcard (**/*.spec.ts)
 ];

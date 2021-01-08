@@ -1,0 +1,27 @@
+
+<h2>Http (xhr)</h2>
+
+<button class="btn btn-outline-primary my-3" (click)="loadUser()">Afficher les utilisateurs</button>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users$ | async">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.phone }}</td>
+      <td>
+        <app-address [address]="user.address"></app-address>
+      </td>
+    </tr>
+  </tbody>
+</table>
